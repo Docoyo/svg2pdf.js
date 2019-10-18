@@ -2370,7 +2370,8 @@ SOFTWARE.
   var svg2pdf = function (element, pdf, options) {
     _pdf = pdf;
 
-    var k = options.scale || 1.0,
+    var scaleX = options.scaleX || 1.0,
+        scaleY = options.scaleY || 1.0,
         xOffset = options.xOffset || 0.0,
         yOffset = options.yOffset || 0.0;
 
@@ -2379,7 +2380,7 @@ SOFTWARE.
 
       // set offsets and scale everything by k
       _pdf.saveGraphicsState();
-      _pdf.setCurrentTransformationMatrix(new _pdf.Matrix(k, 0, 0, k, xOffset, yOffset));
+      _pdf.setCurrentTransformationMatrix(new _pdf.Matrix(scaleX, 0, 0, scaleY, xOffset, yOffset));
 
       // set default values that differ from pdf defaults
       var attributeState = AttributeState.default();
